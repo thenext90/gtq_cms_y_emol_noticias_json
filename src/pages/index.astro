@@ -5,8 +5,8 @@
 import todasLasNoticias from '../data/emol_emprendedores_full.json';
 // ¡NUEVO! Importa el JSON de CMS Consultores
 import cmsConsultoresNewsData from '../data/cms_consultores_news.json';
-// Importa el componente del carousel de noticias
-import NewsCarousel from '../components/NewsCarousel.astro';
+// Importar el nuevo componente del slider de noticias
+import FeaturedNewsSlider from '../components/FeaturedNewsSlider.astro';
 
 // Define tus palabras clave de filtro para las noticias existentes (puedes añadir o quitar las que quieras)
 const palabrasClaveFiltro = [
@@ -337,8 +337,9 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
       </div>
     </section>
 
-    <!-- Nueva sección de noticias carousel -->
-    <NewsCarousel />
+    <section id="news-carousel" class="py-16 bg-gradient-to-b from-blue-50 to-white">
+      <FeaturedNewsSlider newsItems={noticias} />
+    </section>
 
     <section id="contact" class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
