@@ -50,7 +50,7 @@ const { newsData = [] } = Astro.props;
                         </p>
                       )}
                       <h3 class="text-xl font-semibold text-gray-900 mb-2">{noticia.titulo}</h3>
-                      <p class="text-gray-700 line-clamp-3">{noticia.descripcion || ''}</p>
+                      <p class="text-gray-700">{noticia.descripcion || ''}</p>
                     </div>
                   </a>
                 </div>
@@ -78,7 +78,6 @@ const { newsData = [] } = Astro.props;
 </section>
 
 <script>
-  // Simple carousel functionality
   document.addEventListener('DOMContentLoaded', function() {
     const track = document.getElementById('news-track');
     const prevBtn = document.getElementById('prev-btn');
@@ -87,98 +86,60 @@ const { newsData = [] } = Astro.props;
     if (!track || !prevBtn || !nextBtn) return;
     
     let currentPosition = 0;
-    const slides = track.children;
-    const slideWidth = slides.length > 0 ? slides[0].offsetWidth + 16 : 0; // Add gap
+    const slides = Array.from(track.children);
     
-    function updateMaxPosition() {
-      return Math.max(0, slides.length - (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1));
+    // Simple calculation for items per view based on screen width
+    function getItemsPerView() {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 768) return 2;
+      return 1;
     }
     
-    let maxPosition = updateMaxPosition();
+    function updateCarousel() {
+      // Get the width of a single slide (including gap)
+      const slideWidth = slides[0].offsetWidth;
+      const slideGap = 16; // 1rem gap
+      const totalWidth = slideWidth + slideGap;
+      
+      track.style.transition = 'transform 0.3s ease-in-out';
+      track.style.transform = `translateX(-${currentPosition * totalWidth}px)`;
+    }
     
-    function updateTrack() {
-      track.style.transform = `translateX(-${currentPosition * slideWidth}px)`;
-      track.style.transition = 'transform 0.5s ease-in-out';
+    function updateButtons() {
+      prevBtn.disabled = currentPosition <= 0;
+      nextBtn.disabled = currentPosition >= slides.length - getItemsPerView();
+      
+      prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
+      nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
     }
     
     prevBtn.addEventListener('click', () => {
-      currentPosition = Math.max(0, currentPosition - 1);
-      updateTrack();
+      if (currentPosition > 0) {
+        currentPosition--;
+        updateCarousel();
+        updateButtons();
+      }
     });
     
     nextBtn.addEventListener('click', () => {
-      currentPosition = Math.min(maxPosition, currentPosition + 1);
-      updateTrack();
+      if (currentPosition < slides.length - getItemsPerView()) {
+        currentPosition++;
+        updateCarousel();
+        updateButtons();
+      }
     });
     
-    // Responsive adjustment
+    // Initialize carousel
+    if (slides.length > 0) {
+      updateButtons();
+    }
+    
+    // Handle window resize
     window.addEventListener('resize', () => {
-      maxPosition = updateMaxPosition();
-      currentPosition = Math.min(currentPosition, maxPosition);
-      updateTrack();
+      // Reset position when screen size changes categories
+      currentPosition = 0;
+      updateCarousel();
+      updateButtons();
     });
   });
 </script>
-
-<style>
-  /* Estilos adicionales para mejorar la experiencia */
-  #news-carousel-container {
-    touch-action: pan-y pinch-zoom;
-  }
-
-  /* Smooth scroll behavior */
-  #news-track {
-    will-change: transform;
-  }
-
-  /* Hover effects para los controles */
-  button:focus {
-    outline: 2px solid #3B82F6;
-    outline-offset: 2px;
-  }
-
-  /* Animaciones suaves para las tarjetas */
-  #news-track > div {
-    transition: transform 0.3s ease;
-  }
-
-  /* Efecto de pausa visual en hover */
-  #news-carousel-container:hover #news-track {
-    animation-play-state: paused;
-  }
-
-  /* Optimización para dispositivos móviles */
-  @media (max-width: 768px) {
-    #news-prev-btn, #news-next-btn {
-      padding: 0.5rem;
-    }
-    
-    #news-prev-btn svg, #news-next-btn svg {
-      width: 1rem;
-      height: 1rem;
-    }
-  }
-
-  /* Animación de aparición para las noticias */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Aplicar animación con delay escalonado */
-  #news-track > div:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.1s both; }
-  #news-track > div:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.2s both; }
-  #news-track > div:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.3s both; }
-
-  /* Indicador de carga para la barra de progreso */
-  #progress-bar {
-    background: linear-gradient(90deg, #3B82F6, #1E40AF);
-    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
-  }
-</style>
