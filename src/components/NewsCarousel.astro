@@ -9,15 +9,24 @@ const { newsData = [] } = Astro.props;
       <!-- Título de la sección -->
       <div class="lg:col-span-1">
         <div class="text-center lg:text-left">
-          <h2 class="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-            Últimas Noticias ISO
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Noticias Destacadas
           </h2>
           <p class="text-lg text-gray-600 mb-6">
-            Mantente actualizado con las últimas tendencias, regulaciones y mejores prácticas en gestión ISO.
+            Las últimas novedades sobre certificaciones ISO y gestión de calidad.
           </p>
-          <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-colors duration-300">
-            Ver Todas las Noticias
-          </button>
+          <div class="flex justify-center lg:justify-start space-x-2">
+            <button id="prev-btn" class="p-2 rounded-full bg-white shadow hover:bg-gray-100 focus:outline-none">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button id="next-btn" class="p-2 rounded-full bg-white shadow hover:bg-gray-100 focus:outline-none">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -26,7 +35,7 @@ const { newsData = [] } = Astro.props;
         <div class="relative">
           <!-- Contenedor del carousel -->
           <div id="news-carousel-container" class="overflow-hidden rounded-xl">
-            <div id="news-track" class="flex gap-4 pb-4">
+            <div id="news-track" class="flex transition-transform duration-500 ease-in-out gap-4">
               {newsData.map((noticia) => (
                 <div class="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.67rem)] flex-shrink-0">
                   <a href={noticia.link} class="block h-full bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -57,20 +66,6 @@ const { newsData = [] } = Astro.props;
               ))}
             </div>
           </div>
-
-          <!-- Navigation Controls -->
-          <div class="flex justify-center mt-6 gap-2">
-            <button id="prev-btn" class="p-2 rounded-full bg-white shadow hover:bg-gray-100 focus:outline-none">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-              </svg>
-            </button>
-            <button id="next-btn" class="p-2 rounded-full bg-white shadow hover:bg-gray-100 focus:outline-none">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
     </div>
@@ -85,61 +80,37 @@ const { newsData = [] } = Astro.props;
     
     if (!track || !prevBtn || !nextBtn) return;
     
-    let currentPosition = 0;
-    const slides = Array.from(track.children);
+    let currentIndex = 0;
     
-    // Simple calculation for items per view based on screen width
-    function getItemsPerView() {
-      if (window.innerWidth >= 1024) return 3;
-      if (window.innerWidth >= 768) return 2;
-      return 1;
+    // Calculate items visible based on screen width
+    function getVisibleItems() {
+      return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
     }
     
-    function updateCarousel() {
-      // Get the width of a single slide (including gap)
-      const slideWidth = slides[0].offsetWidth;
-      const slideGap = 16; // 1rem gap
-      const totalWidth = slideWidth + slideGap;
-      
-      track.style.transition = 'transform 0.3s ease-in-out';
-      track.style.transform = `translateX(-${currentPosition * totalWidth}px)`;
+    // Update track position
+    function updateTrack() {
+      const itemWidth = 100 / getVisibleItems();
+      track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
     }
     
-    function updateButtons() {
-      prevBtn.disabled = currentPosition <= 0;
-      nextBtn.disabled = currentPosition >= slides.length - getItemsPerView();
-      
-      prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
-      nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
-    }
-    
-    prevBtn.addEventListener('click', () => {
-      if (currentPosition > 0) {
-        currentPosition--;
-        updateCarousel();
-        updateButtons();
-      }
+    // Previous button click
+    prevBtn.addEventListener('click', function() {
+      currentIndex = Math.max(0, currentIndex - 1);
+      updateTrack();
     });
     
-    nextBtn.addEventListener('click', () => {
-      if (currentPosition < slides.length - getItemsPerView()) {
-        currentPosition++;
-        updateCarousel();
-        updateButtons();
-      }
+    // Next button click
+    nextBtn.addEventListener('click', function() {
+      const maxIndex = Math.max(0, newsData.length - getVisibleItems());
+      currentIndex = Math.min(maxIndex, currentIndex + 1);
+      updateTrack();
     });
-    
-    // Initialize carousel
-    if (slides.length > 0) {
-      updateButtons();
-    }
     
     // Handle window resize
-    window.addEventListener('resize', () => {
-      // Reset position when screen size changes categories
-      currentPosition = 0;
-      updateCarousel();
-      updateButtons();
+    window.addEventListener('resize', function() {
+      // Reset position to prevent out-of-bounds
+      currentIndex = 0;
+      updateTrack();
     });
   });
 </script>
