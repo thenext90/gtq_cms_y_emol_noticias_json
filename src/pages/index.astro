@@ -492,14 +492,17 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
         let currentSlide = 0;
         
         function showNextSlide() {
+          // Type assertion to tell TypeScript this is an HTMLElement with style property
+          const currentElement = slides[currentSlide] as HTMLElement;
           // Ocultar slide actual
-          slides[currentSlide].style.opacity = '0';
+          currentElement.style.opacity = '0';
           
           // Avanzar al siguiente slide
           currentSlide = (currentSlide + 1) % slides.length;
           
           // Mostrar nuevo slide
-          slides[currentSlide].style.opacity = '1';
+          const nextElement = slides[currentSlide] as HTMLElement;
+          nextElement.style.opacity = '1';
         }
         
         // Cambiar slide cada 4 segundos
