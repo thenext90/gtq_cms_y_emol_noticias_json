@@ -163,12 +163,12 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
       </div>
     </header>
 
-    <section id="hero" class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 lg:py-20 flex items-center justify-center min-h-[70vh]">
+    <section id="hero" class="relative text-white py-16 lg:py-20 flex items-center justify-center min-h-[70vh]">
       <!-- Slider de imágenes de fondo -->
       <div class="absolute inset-0 z-0">
         <div id="hero-slider" class="relative w-full h-full overflow-hidden">
           <!-- Imagen 1: Oficina moderna con tecnología -->
-          <div class="hero-slide absolute inset-0 opacity-30 transition-opacity duration-1000">
+          <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-1000">
             <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Oficina moderna" class="w-full h-full object-cover">
           </div>
           <!-- Imagen 2: Equipo de trabajo colaborativo -->
@@ -188,8 +188,8 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
             <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Consultoría empresarial" class="w-full h-full object-cover">
           </div>
         </div>
-        <!-- Overlay gradient para mejor legibilidad del texto -->
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-800/70"></div>
+        <!-- Overlay oscuro para mejor legibilidad del texto -->
+        <div class="absolute inset-0 bg-black/50"></div>
       </div>
       
       <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
@@ -493,7 +493,7 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
           currentSlide = (currentSlide + 1) % slides.length;
           
           // Mostrar nuevo slide
-          slides[currentSlide].style.opacity = '0.3';
+          slides[currentSlide].style.opacity = '1';
         }
         
         // Cambiar slide cada 4 segundos
