@@ -68,6 +68,37 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
       .dropdown:hover .dropdown-menu {
         display: block;
       }
+      
+      /* Hero slider styles */
+      .hero-slide {
+        transition: opacity 1000ms ease-in-out;
+      }
+      
+      /* Animaciones personalizadas */
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+      }
+      
+      .animate-delay-200 {
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+      
+      .animate-delay-400 {
+        animation-delay: 0.4s;
+        opacity: 0;
+      }
     </style>
   </head>
   <body class="font-sans text-gray-900 bg-white antialiased">
@@ -132,10 +163,35 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
       </div>
     </header>
 
-    <section id="hero" class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24 flex items-center justify-center min-h-screen-75">
-      <div class="absolute inset-0 z-0 opacity-20">
-        <img src="https://via.placeholder.com/1920x1080" alt="Background pattern" class="w-full h-full object-cover">
+    <section id="hero" class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 lg:py-20 flex items-center justify-center min-h-[70vh]">
+      <!-- Slider de imágenes de fondo -->
+      <div class="absolute inset-0 z-0">
+        <div id="hero-slider" class="relative w-full h-full overflow-hidden">
+          <!-- Imagen 1: Oficina moderna con tecnología -->
+          <div class="hero-slide absolute inset-0 opacity-30 transition-opacity duration-1000">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Oficina moderna" class="w-full h-full object-cover">
+          </div>
+          <!-- Imagen 2: Equipo de trabajo colaborativo -->
+          <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Equipo de trabajo" class="w-full h-full object-cover">
+          </div>
+          <!-- Imagen 3: Documentos y certificaciones -->
+          <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Documentos y análisis" class="w-full h-full object-cover">
+          </div>
+          <!-- Imagen 4: Industria y calidad -->
+          <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Industria y tecnología" class="w-full h-full object-cover">
+          </div>
+          <!-- Imagen 5: Consultoría y reuniones -->
+          <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Consultoría empresarial" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <!-- Overlay gradient para mejor legibilidad del texto -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-800/70"></div>
       </div>
+      
       <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
         <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up">
           Transformando tu Gestión <br class="hidden sm:inline">hacia la Excelencia ISO
@@ -425,6 +481,24 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Hero Slider functionality
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+        
+        function showNextSlide() {
+          // Ocultar slide actual
+          slides[currentSlide].style.opacity = '0';
+          
+          // Avanzar al siguiente slide
+          currentSlide = (currentSlide + 1) % slides.length;
+          
+          // Mostrar nuevo slide
+          slides[currentSlide].style.opacity = '0.3';
+        }
+        
+        // Cambiar slide cada 4 segundos
+        setInterval(showNextSlide, 4000);
+        
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
