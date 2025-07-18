@@ -1,6 +1,6 @@
 # Global Technology Quality - Website con Carousel de Noticias
 
-Este proyecto es un sitio web profesional para Global Technology Quality, una empresa de consultoría ISO, construido con Astro y Tailwind CSS. Incluye secciones para servicios, noticias y un **nuevo carousel interactivo de noticias destacadas**.
+Este proyecto es un sitio web profesional para Global TechnologyyQuality, una empresa de consultoría ISO, construido con Astro y Tailwind CSS. Incluye secciones para servicios, noticias y un **nuevo carousel interactivo de noticias destacadas**.
 
 ## 🆕 Nuevas Características - Carousel de Noticias
 
