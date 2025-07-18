@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "cover": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "title": "Desarrollo Android desde Cero a Experto",
+    "rating": 5,
+    "ratingCount": 8,
+    "price": 25,
+    "category": "Principiante"
+  },
+  {
+    "id": 2,
+    "cover": "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "title": "Guía Completa de UI/UX Design",
+    "rating": 5,
+    "ratingCount": 15,
+    "price": 20,
+    "category": "Intermedio"
+  },
+  {
+    "id": 3,
+    "cover": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "title": "Fundamentos de Modelado de Datos",
+    "rating": 4,
+    "ratingCount": 7,
+    "price": 30,
+    "category": "Principiante"
+  },
+  {
+    "id": 4,
+    "cover": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "title": "Guía Completa de Docker y Kubernetes",
+    "rating": 4,
+    "ratingCount": 12,
+    "price": 30,
+    "category": "Intermedio"
+  },
+  {
+    "id": 5,
+    "cover": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "title": "React Moderno con MUI y Redux",
+    "rating": 4,
+    "ratingCount": 32,
+    "price": 35,
+    "category": "Intermedio"
+  },
+  {
+    "id": 6,
+    "cover": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "title": "Bootcamp de Hacking Ético",
+    "rating": 5,
+    "ratingCount": 14,
+    "price": 35,
+    "category": "Principiante"
+  },
+  {
+    "id": 7,
+    "cover": "https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "title": "Adobe Lightroom para Principiantes",
+    "rating": 4,
+    "ratingCount": 6,
+    "price": 25,
+    "category": "Principiante"
+  },
+  {
+    "id": 8,
+    "cover": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "title": "Data Science con Python",
+    "rating": 5,
+    "ratingCount": 25,
+    "price": 40,
+    "category": "Avanzado"
+  },
+  {
+    "id": 9,
+    "cover": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "title": "Machine Learning Fundamentals",
+    "rating": 4,
+    "ratingCount": 18,
+    "price": 45,
+    "category": "Avanzado"
+  },
+  {
+    "id": 10,
+    "cover": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "title": "Desarrollo Web Full Stack",
+    "rating": 5,
+    "ratingCount": 42,
+    "price": 50,
+    "category": "Intermedio"
+  }
+]
