@@ -5,8 +5,8 @@
 import todasLasNoticias from '../data/emol_emprendedores_full.json';
 // ¡NUEVO! Importa el JSON de CMS Consultores
 import cmsConsultoresNewsData from '../data/cms_consultores_news.json';
-// Importa el componente del carousel de cursos
-import CoursesCarousel from '../components/CoursesCarousel.astro';
+// Importa el componente del carousel de noticias
+import NewsCarousel from '../components/NewsCarousel.astro';
 
 // Define tus palabras clave de filtro para las noticias existentes (puedes añadir o quitar las que quieras)
 const palabrasClaveFiltro = [
@@ -104,7 +104,7 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
                 <a href="#iso26000" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ISO 26000</a>
               </div>
             </div>
-            <a href="#courses" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out">Cursos</a>
+            <a href="#news-carousel" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out">Noticias Destacadas</a>
             <a href="#contact" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out">Contacto</a>
             <a href="#news" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out">Noticias Emol</a>
             <a href="#cms-news" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out">Noticias CMS</a>
@@ -124,7 +124,7 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
           <a href="#iso19600" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">ISO 19600</a>
           <a href="#iso31000" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">ISO 31000</a>
           <a href="#iso26000" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">ISO 26000</a>
-          <a href="#courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Cursos</a>
+          <a href="#news-carousel" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Noticias Destacadas</a>
           <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contacto</a>
           <a href="#news" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Noticias Emol</a>
           <a href="#cms-news" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Noticias CMS</a>
@@ -276,8 +276,8 @@ const cmsConsultoresNews = cmsConsultoresNewsData;
       </div>
     </section>
 
-    <!-- Nueva sección de cursos -->
-    <CoursesCarousel />
+    <!-- Nueva sección de noticias carousel -->
+    <NewsCarousel />
 
     <section id="contact" class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">

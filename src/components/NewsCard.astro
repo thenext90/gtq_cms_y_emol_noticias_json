@@ -1,0 +1,111 @@
+---
+// Componente para mostrar una tarjeta individual de noticia
+export interface Props {
+  noticia: {
+    id: number;
+    titulo: string;
+    imagen: string;
+    fecha: string;
+    categoria: string;
+    resumen: string;
+  };
+}
+
+const { noticia } = Astro.props;
+
+// Función para formatear la fecha
+const formatearFecha = (fechaString: string) => {
+  try {
+    const fecha = new Date(fechaString);
+    return new Intl.DateTimeFormat('es-ES', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(fecha);
+  } catch (e) {
+    return fechaString;
+  }
+};
+
+// Función para obtener el color de la categoría
+const getCategoryColor = (categoria: string) => {
+  const colors: { [key: string]: string } = {
+    'ISO 9001': 'bg-blue-100 text-blue-800',
+    'ISO 14001': 'bg-green-100 text-green-800',
+    'ISO 27001': 'bg-purple-100 text-purple-800',
+    'ISO 45001': 'bg-red-100 text-red-800',
+    'ISO 31000': 'bg-yellow-100 text-yellow-800',
+    'ISO 22301': 'bg-indigo-100 text-indigo-800',
+    'ISO 37001': 'bg-pink-100 text-pink-800',
+    'ISO 19600': 'bg-gray-100 text-gray-800',
+    'ISO 26000': 'bg-teal-100 text-teal-800',
+    'Innovación': 'bg-orange-100 text-orange-800',
+    'default': 'bg-blue-100 text-blue-800'
+  };
+  
+  return colors[categoria] || colors.default;
+};
+---
+
+<div class="px-2 py-4">
+  <article class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 overflow-hidden h-full flex flex-col">
+    <!-- Imagen de la noticia -->
+    <div class="relative overflow-hidden">
+      <img 
+        src={noticia.imagen} 
+        alt={noticia.titulo}
+        class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+        loading="lazy"
+      />
+      <!-- Categoría sobre la imagen -->
+      <div class={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold ${getCategoryColor(noticia.categoria)}`}>
+        {noticia.categoria}
+      </div>
+      <!-- Fecha sobre la imagen -->
+      <div class="absolute bottom-3 right-3 bg-black/70 text-white px-2 py-1 rounded text-xs">
+        {formatearFecha(noticia.fecha)}
+      </div>
+    </div>
+
+    <!-- Contenido de la tarjeta -->
+    <div class="p-4 flex-1 flex flex-col">
+      <!-- Título -->
+      <h3 class="text-lg font-bold text-gray-900 mb-3 line-clamp-2 flex-shrink-0">
+        {noticia.titulo}
+      </h3>
+      
+      <!-- Resumen -->
+      <p class="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+        {noticia.resumen}
+      </p>
+
+      <!-- Footer con botón de leer más -->
+      <div class="mt-auto">
+        <button class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-2 px-4 rounded-lg transition-all duration-300 text-sm font-medium group">
+          <span class="flex items-center justify-center">
+            Leer más
+            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </article>
+</div>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

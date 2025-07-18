@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "titulo": "Nuevas Regulaciones ISO 9001:2024 - Cambios Importantes para la Certificación",
+    "imagen": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "fecha": "2025-07-15",
+    "categoria": "ISO 9001",
+    "resumen": "La organización ISO ha anunciado importantes actualizaciones en los estándares de calidad que entrarán en vigor este año."
+  },
+  {
+    "id": 2,
+    "titulo": "Tendencias en Gestión Ambiental ISO 14001 para Empresas Sostenibles",
+    "imagen": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "fecha": "2025-07-12",
+    "categoria": "ISO 14001",
+    "resumen": "Descubre las últimas tendencias en gestión ambiental y cómo implementar prácticas sostenibles en tu organización."
+  },
+  {
+    "id": 3,
+    "titulo": "Seguridad de la Información: ISO 27001 en la Era Digital",
+    "imagen": "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "fecha": "2025-07-10",
+    "categoria": "ISO 27001",
+    "resumen": "La ciberseguridad nunca ha sido tan importante. Aprende cómo ISO 27001 puede proteger tu información corporativa."
+  },
+  {
+    "id": 4,
+    "titulo": "Implementación Exitosa de ISO 45001 en el Sector Construcción",
+    "imagen": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "fecha": "2025-07-08",
+    "categoria": "ISO 45001",
+    "resumen": "Caso de éxito: cómo una empresa constructora redujo accidentes laborales en un 75% con ISO 45001."
+  },
+  {
+    "id": 5,
+    "titulo": "Gestión de Riesgos Empresariales: Guía Práctica ISO 31000",
+    "imagen": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "fecha": "2025-07-05",
+    "categoria": "ISO 31000",
+    "resumen": "Metodologías efectivas para identificar, evaluar y mitigar riesgos en tu organización."
+  },
+  {
+    "id": 6,
+    "titulo": "Continuidad del Negocio: Preparándose para lo Inesperado con ISO 22301",
+    "imagen": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "fecha": "2025-07-03",
+    "categoria": "ISO 22301",
+    "resumen": "Cómo garantizar la continuidad operacional de tu empresa ante crisis y disrupciones inesperadas."
+  },
+  {
+    "id": 7,
+    "titulo": "Sistemas Antisoborno: Implementando ISO 37001 de Manera Efectiva",
+    "imagen": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "fecha": "2025-07-01",
+    "categoria": "ISO 37001",
+    "resumen": "Fortalece la integridad de tu organización con un sistema robusto de gestión antisoborno."
+  },
+  {
+    "id": 8,
+    "titulo": "Transformación Digital y Normas ISO: El Futuro de la Gestión Empresarial",
+    "imagen": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "fecha": "2025-06-28",
+    "categoria": "Innovación",
+    "resumen": "Descubre cómo la digitalización está revolucionando la implementación de estándares ISO."
+  },
+  {
+    "id": 9,
+    "titulo": "Compliance y Gestión Ética: ISO 19600 en Organizaciones Modernas",
+    "imagen": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "fecha": "2025-06-25",
+    "categoria": "ISO 19600",
+    "resumen": "Construye una cultura de cumplimiento sólida que proteja y fortalezca tu reputación corporativa."
+  },
+  {
+    "id": 10,
+    "titulo": "Responsabilidad Social Corporativa: Implementando ISO 26000",
+    "imagen": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "fecha": "2025-06-22",
+    "categoria": "ISO 26000",
+    "resumen": "Integra la responsabilidad social en tu estrategia empresarial para crear valor sostenible."
+  }
+]

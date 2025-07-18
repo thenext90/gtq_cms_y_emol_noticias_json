@@ -1,47 +1,52 @@
-# Global Technology Quality - Website con Carousel de Cursos
+# Global Technology Quality - Website con Carousel de Noticias
 
-Este proyecto es un sitio web profesional para Global Technology Quality, una empresa de consultoría ISO, construido con Astro y Tailwind CSS. Incluye secciones para servicios, noticias y un **nuevo carousel interactivo de cursos**.
+Este proyecto es un sitio web profesional para Global Technology Quality, una empresa de consultoría ISO, construido con Astro y Tailwind CSS. Incluye secciones para servicios, noticias y un **nuevo carousel interactivo de noticias destacadas**.
 
-## 🆕 Nuevas Características - Carousel de Cursos
+## 🆕 Nuevas Características - Carousel de Noticias
 
 ### Componentes Agregados:
-1. **`/src/components/CourseCard.astro`** - Tarjeta individual de curso
-2. **`/src/components/CoursesCarousel.astro`** - Carousel principal
-3. **`/src/data/courses.json`** - Datos de los cursos
+1. **`/src/components/NewsCard.astro`** - Tarjeta individual de noticia
+2. **`/src/components/NewsCarousel.astro`** - Carousel principal de noticias
+3. **`/src/data/news-carousel.json`** - Datos de las noticias destacadas
 
 ### Características del Carousel:
-- ✅ **Autoplay automático** (cada 4 segundos)
+- ✅ **Autoplay automático mejorado** (cada 5 segundos)
 - ✅ **Navegación con flechas**
 - ✅ **Indicadores de puntos (dots)**
+- ✅ **Barra de progreso animada** - nueva característica
 - ✅ **Diseño completamente responsive**
-  - Móvil: 1 curso por vista
-  - Tablet: 2 cursos por vista  
-  - Desktop: 3 cursos por vista
+  - Móvil: 1 noticia por vista
+  - Tablet: 2 noticias por vista  
+  - Desktop: 3 noticias por vista
 - ✅ **Soporte para navegación con teclado** (flechas ←→)
+- ✅ **Gestos táctiles (swipe)** para móviles - nueva característica
 - ✅ **Pausa automática al hacer hover**
 - ✅ **Efectos de transición suaves**
+- ✅ **Animaciones de aparición escalonadas**
 - ✅ **Optimizado para rendimiento**
 
-### Datos de Cursos Incluidos:
-- 10 cursos de ejemplo con imágenes de Unsplash
-- Categorías: Principiante, Intermedio, Avanzado
-- Sistema de ratings con estrellas
-- Precios en USD
-- Imágenes responsivas
+### Datos de Noticias Incluidos:
+- 10 noticias destacadas sobre ISO y gestión empresarial
+- Categorías codificadas por colores: ISO 9001, 14001, 27001, 45001, etc.
+- Fechas reales y formateadas en español
+- Imágenes profesionales de Unsplash
+- Resúmenes informativos
 
 ## 📁 Estructura del Proyecto
 
 ```
 src/
 ├── components/
-│   ├── CourseCard.astro          # ← NUEVO: Tarjeta de curso
-│   └── CoursesCarousel.astro     # ← NUEVO: Carousel principal
+│   ├── NewsCard.astro              # ← NUEVO: Tarjeta de noticia
+│   ├── NewsCarousel.astro          # ← NUEVO: Carousel de noticias
+│   └── CourseCard.astro            # ← PREVIO: Componente de curso (no usado)
 ├── data/
-│   ├── courses.json              # ← NUEVO: Datos de cursos
+│   ├── news-carousel.json          # ← NUEVO: Datos de noticias destacadas
+│   ├── courses.json                # ← PREVIO: Datos de cursos (no usado)
 │   ├── emol_emprendedores_full.json
 │   └── cms_consultores_news.json
 └── pages/
-    └── index.astro               # ← MODIFICADO: Incluye carousel
+    └── index.astro                 # ← MODIFICADO: Incluye carousel de noticias
 ```
 
 ## 🚀 Instalación y Uso
@@ -63,41 +68,45 @@ src/
 
 ## 🎨 Personalización del Carousel
 
-### Modificar Cursos:
-Edita el archivo `/src/data/courses.json`:
+### Modificar Noticias:
+Edita el archivo `/src/data/news-carousel.json`:
 
 ```json
 {
   "id": 1,
-  "cover": "URL_de_imagen",
-  "title": "Título del curso",
-  "rating": 5,
-  "ratingCount": 25,
-  "price": 30,
-  "category": "Intermedio"
+  "titulo": "Título de la noticia",
+  "imagen": "URL_de_imagen",
+  "fecha": "2025-07-17",
+  "categoria": "ISO 9001",
+  "resumen": "Resumen descriptivo de la noticia..."
 }
 ```
 
+### Categorías Disponibles con Colores:
+- **ISO 9001:** Azul
+- **ISO 14001:** Verde  
+- **ISO 27001:** Púrpura
+- **ISO 45001:** Rojo
+- **ISO 31000:** Amarillo
+- **ISO 22301:** Índigo
+- **ISO 37001:** Rosa
+- **ISO 19600:** Gris
+- **ISO 26000:** Verde azulado
+- **Innovación:** Naranja
+
 ### Ajustar Configuración:
-En `/src/components/CoursesCarousel.astro`, puedes modificar:
+En `/src/components/NewsCarousel.astro`, puedes modificar:
 
-- **Velocidad del autoplay:** Línea 140 - `4000` (milisegundos)
-- **Cursos por vista:** Líneas 67-75 - Ajustar breakpoints
-- **Velocidad de transición:** Línea 188 - `duration-500`
-
-### Estilos Personalizados:
-El carousel usa clases de Tailwind CSS que puedes personalizar:
-
-- **Colores:** `bg-blue-600`, `text-blue-600`, etc.
-- **Espaciado:** `py-16`, `px-6`, etc.
-- **Sombras:** `shadow-lg`, `hover:shadow-xl`
+- **Velocidad del autoplay:** Línea 20 - `autoplayDuration = 5000` (milisegundos)
+- **Noticias por vista:** Líneas 25-33 - Ajustar breakpoints
+- **Velocidad de transición:** CSS - `duration-500`
 
 ## 🌐 Secciones del Sitio
 
 1. **Hero** - Mensaje principal
 2. **Nosotros** - Visión, misión y valores
 3. **Servicios** - Certificaciones ISO disponibles
-4. **Cursos** - ← **NUEVO: Carousel interactivo**
+4. **Noticias Destacadas** - ← **NUEVO: Carousel interactivo de noticias**
 5. **Contacto** - Formulario y información
 6. **Noticias Emol** - Feed de noticias filtradas
 7. **Noticias CMS** - Contenido de CMS Consultores
@@ -106,9 +115,9 @@ El carousel usa clases de Tailwind CSS que puedes personalizar:
 
 El carousel está completamente optimizado para todos los dispositivos:
 
-- **Móvil (< 768px):** 1 curso, controles adaptados
-- **Tablet (768px - 1024px):** 2 cursos
-- **Desktop (> 1024px):** 3 cursos, experiencia completa
+- **Móvil (< 768px):** 1 noticia, controles adaptados, soporte para swipe
+- **Tablet (768px - 1024px):** 2 noticias
+- **Desktop (> 1024px):** 3 noticias, experiencia completa
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -116,6 +125,25 @@ El carousel está completamente optimizado para todos los dispositivos:
 - **Tailwind CSS 3.0** - Estilos y diseño
 - **TypeScript** - Tipado estático
 - **JavaScript nativo** - Funcionalidad del carousel (sin dependencias externas)
+
+## ✨ Características Avanzadas
+
+### 🎯 Autoplay Inteligente:
+- Se pausa automáticamente al hacer hover
+- Se reinicia al quitar el cursor
+- Barra de progreso visual
+- Funciona con gestos táctiles
+
+### 📱 Experiencia Móvil:
+- Soporte completo para gestos swipe
+- Controles optimizados para pantallas pequeñas
+- Animaciones suaves y responsivas
+
+### ♿ Accesibilidad:
+- Navegación completa con teclado
+- Etiquetas ARIA apropiadas
+- Contraste de colores optimizado
+- Focus indicators visibles
 
 ## 🔧 Código Reutilizable
 
@@ -131,12 +159,15 @@ El código del carousel es completamente modular y puede ser:
 - **Imágenes optimizadas** con lazy loading
 - **CSS mínimo** usando Tailwind
 - **JavaScript eficiente** con event listeners optimizados
+- **Animaciones CSS nativas** para mejor rendimiento
 
 ## 🎯 Próximas Mejoras Sugeridas
 
 - [ ] Lazy loading para imágenes del carousel
-- [ ] Gestos táctiles (swipe) en móviles
 - [ ] Preloader para imágenes
-- [ ] Integración con CMS para cursos dinámicos
-- [ ] Filtros por categoría de curso
-- [ ] Modal de detalles de curso
+- [ ] Integración con CMS para noticias dinámicas
+- [ ] Filtros por categoría de noticia
+- [ ] Modal de lectura completa
+- [ ] Compartir en redes sociales
+- [ ] Sistema de favoritos
+- [ ] Búsqueda de noticias
